@@ -1,0 +1,26 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+' Classes principales
+class Availability {
+    + id : Long
+    + date : LocalDate
+    + startTime : LocalTime
+    + endTime : LocalTime
+}
+
+class Appointment {
+    + id : Long
+    + date : LocalDate
+    + startTime : LocalTime
+    + duration : int
+    + name : String
+    + email : String
+    + phone : String
+    + status : String <<enum>>  // PENDING, VALIDATED, CONFIRMED
+}
+
+' Relation entre Availability et Appointment
+Availability "1" -- "0..*" Appointment : contient
+
+@enduml
