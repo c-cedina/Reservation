@@ -32,7 +32,7 @@ public class AppointmentService {
 
     // Read by Date Range
     public List<Appointment> getAppointmentsByDateRange(LocalDateTime start, LocalDateTime end) {
-        return appointmentRepository.findByAppointmentDateBetween(start, end);
+        return appointmentRepository.findByDateBetween(start, end);
     }
 
     // Delete

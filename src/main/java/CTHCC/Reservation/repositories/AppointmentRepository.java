@@ -26,5 +26,5 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
     List<Appointment> findByDateAndStatus(LocalDate date, Status status);
 
     // Trouver les rendez-vous entre deux date
-    List<Appointment> findByAppointmentDateBetween(LocalDateTime start, LocalDateTime end);
+    List<Appointment> findByDateBetween(LocalDateTime start, LocalDateTime end);
 }
