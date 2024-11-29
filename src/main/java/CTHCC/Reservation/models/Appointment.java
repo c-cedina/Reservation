@@ -5,9 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-
 import CTHCC.Reservation.enums.Status;
 
 @Entity
@@ -20,12 +17,6 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate date;
-
-    private LocalTime startTime;
-
-    private int duration; // Durée en minutes
-
     private String name;
 
     private String email;
@@ -35,7 +26,7 @@ public class Appointment {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @ManyToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "availability_id", nullable = false)
     private Availability availability;
 }

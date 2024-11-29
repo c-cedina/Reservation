@@ -18,4 +18,8 @@ public interface AvailabilityRepository extends JpaRepository<Availability, Long
 
     // Trouver les disponibilités entre deux dates
     List<Availability> findByDateBetween(LocalDate startDate, LocalDate endDate);
+
+    List<Availability> findByIsAvailable(boolean available);
+
+    List<Availability> findByDateBetweenAndIsAvailable(LocalDate startDate, LocalDate endDate, boolean available);
 }

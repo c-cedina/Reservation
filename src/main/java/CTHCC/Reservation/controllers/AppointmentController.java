@@ -38,17 +38,6 @@ public class AppointmentController {
         return appointmentService.getAllAppointments();
     }
 
-    // Read by Date Range
-    @ResponseStatus(value = HttpStatus.OK)
-    @GetMapping("/range")
-    public List<Appointment> getAppointmentsByDateRange(
-            @RequestParam String start,
-            @RequestParam String end) {
-        LocalDateTime startDateTime = LocalDateTime.parse(start);
-        LocalDateTime endDateTime = LocalDateTime.parse(end);
-        return appointmentService.getAppointmentsByDateRange(startDateTime, endDateTime);
-    }
-
     // Delete
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")

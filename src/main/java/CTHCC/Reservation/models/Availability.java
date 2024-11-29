@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
 
 @Entity
 @Data
@@ -25,6 +24,8 @@ public class Availability {
 
     private LocalTime endTime;
 
-    @OneToMany(mappedBy = "availability", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Appointment> appointments;
+    private boolean isAvailable = true;
+
+    @OneToOne(mappedBy = "availability", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Appointment appointment;
 }
