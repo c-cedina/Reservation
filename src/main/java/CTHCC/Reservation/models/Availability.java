@@ -8,6 +8,10 @@ import lombok.AllArgsConstructor;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -27,5 +31,6 @@ public class Availability {
     private boolean isAvailable = true;
 
     @OneToOne(mappedBy = "availability", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private Appointment appointment;
 }
