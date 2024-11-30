@@ -13,6 +13,9 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import CTHCC.Reservation.enums.Status;
 
 @Entity
+@Table(name = "appointment", uniqueConstraints = @UniqueConstraint(columnNames = "availability_id") // Rend cette //
+                                                                                                    // colonne unique
+)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
